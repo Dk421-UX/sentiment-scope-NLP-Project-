@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SentimentScope | Explainable NLP</title>
+  <link rel="stylesheet" href="/frontend/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header><p class="eyebrow">LOCAL • EXPLAINABLE • RULE-BASED NLP</p><h1>Sentiment<span>Scope</span></h1><p class="tagline">Understand the emotion behind the words.</p></header>
+    <section class="panel input-panel" aria-labelledby="analyze-heading">
+      <div class="section-head"><div><h2 id="analyze-heading">Text analyzer</h2><p>Analyze up to 10,000 characters with a transparent local lexicon.</p></div><button id="resetButton" class="text-button" type="button">Reset</button></div>
+      <label for="textInput">Enter text to analyze</label>
+      <textarea id="textInput" maxlength="10000" placeholder="Try: The design is amazing but the performance is terrible."></textarea>
+      <div class="input-footer"><span id="characterCount" aria-live="polite">0 / 10,000</span><span id="inputError" class="error" role="alert"></span></div>
+      <button id="analyzeButton" class="primary" type="button">Analyze sentiment <span aria-hidden="true">→</span></button>
+    </section>
+    <section id="status" class="status" aria-live="polite"></section>
+    <section id="results" class="results" hidden aria-live="polite">
+      <div class="result-top panel"><div><p class="eyebrow">OVERALL SENTIMENT</p><h2 id="sentimentLabel">Neutral</h2><p id="explanation"></p></div><div class="score"><span>Normalized score</span><strong id="scoreValue">0.00</strong><small>Range: −1.00 to +1.00</small></div></div>
+      <div id="mixedNotice" class="mixed" hidden>Mixed sentiment detected — both positive and negative evidence was found.</div>
+      <div class="metrics" id="metrics"></div>
+      <div class="grid">
+        <article class="panel"><h3>Sentiment breakdown</h3><div id="breakdown" class="breakdown"></div></article>
+        <article class="panel"><h3>Why this result?</h3><div id="ruleDetails" class="details"></div></article>
+      </div>
+      <div class="grid">
+        <article class="panel"><h3>Positive contributors</h3><div id="positiveChips" class="chips"></div></article>
+        <article class="panel"><h3>Negative contributors</h3><div id="negativeChips" class="chips"></div></article>
+      </div>
+    </section>
+  </main>
+  <footer>SentimentScope is an educational, rule-based NLP system. Scores are evidence ratios, not probabilities.</footer>
+  <script src="/frontend/script.js"></script>
+</body>
+</html>
